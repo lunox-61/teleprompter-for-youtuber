@@ -32,7 +32,7 @@ This is a simple Teleprompter application built with Python and PyQt. It allows 
     ```
 
 ## Download
-You can download the compiled `.exe` file [here]([https://github.com/your-username/your-repository/releases](https://github.com/lunox-61/teleprompter.git)).
+You can download the compiled `.exe` file [here]((https://github.com/lunox-61/teleprompter.git)).
 
 ## Usage
 1. Run the application.
