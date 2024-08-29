@@ -20,7 +20,7 @@ This is a simple Teleprompter application built with Python and PyQt. It allows 
 ### Setup
 1. Clone this repository:
     ```bash
-    git clone https://github.com/your-username/your-repository.git
+    git clone https://github.com/lunox-61/teleprompter.git
     ```
 2. Install the required Python packages:
     ```bash
@@ -32,7 +32,7 @@ This is a simple Teleprompter application built with Python and PyQt. It allows 
     ```
 
 ## Download
-You can download the compiled `.exe` file [here]([[https://github.com/lunox-61/teleprompter](https://github.com/lunox-61/teleprompter.git)](https://github.com/lunox-61/teleprompter/releases)).
+You can download the compiled `.exe` file [here]().
 
 ## Usage
 1. Run the application.
