@@ -1,5 +1,5 @@
-('C:\\Users\\Ilham '
- 'Ripandi\\OneDrive\\Teleprompter\\kode_terpisah\\build\\teleprompter_control\\PYZ-00.pyz',
+("E:\\Ilham's "
+ 'Core\\GitHub\\teleprompter\\build\\teleprompter_control\\PYZ-00.pyz',
  [('PyQt6',
    'C:\\Users\\Ilham '
    'Ripandi\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\PyQt6\\__init__.py',
@@ -217,8 +217,7 @@
    'Ripandi\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\calendar.py',
    'PYMODULE'),
   ('code_editor',
-   'C:\\Users\\Ilham '
-   'Ripandi\\OneDrive\\Teleprompter\\kode_terpisah\\code_editor.py',
+   "E:\\Ilham's Core\\GitHub\\teleprompter\\code_editor.py",
    'PYMODULE'),
   ('concurrent',
    'C:\\Users\\Ilham '
@@ -846,8 +845,7 @@
    'Ripandi\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\selectors.py',
    'PYMODULE'),
   ('settings_dialog',
-   'C:\\Users\\Ilham '
-   'Ripandi\\OneDrive\\Teleprompter\\kode_terpisah\\settings_dialog.py',
+   "E:\\Ilham's Core\\GitHub\\teleprompter\\settings_dialog.py",
    'PYMODULE'),
   ('setuptools',
    'C:\\Users\\Ilham '
@@ -1848,8 +1846,7 @@
    'Ripandi\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\tarfile.py',
    'PYMODULE'),
   ('teleprompter_display',
-   'C:\\Users\\Ilham '
-   'Ripandi\\OneDrive\\Teleprompter\\kode_terpisah\\teleprompter_display.py',
+   "E:\\Ilham's Core\\GitHub\\teleprompter\\teleprompter_display.py",
    'PYMODULE'),
   ('tempfile',
    'C:\\Users\\Ilham '

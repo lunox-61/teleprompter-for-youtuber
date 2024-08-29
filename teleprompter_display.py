@@ -108,14 +108,13 @@ class TeleprompterDisplay(QWidget):
     def mousePressEvent(self, event: QMouseEvent):
         if event.button() == Qt.MouseButton.LeftButton:
             self.dragging = True
-            self.last_mouse_pos = event.pos()
+            self.last_mouse_pos = event.globalPosition().toPoint()
 
     def mouseMoveEvent(self, event: QMouseEvent):
         if self.dragging:
-            delta = event.pos() - self.last_mouse_pos
-            scrollbar = self.text_display.verticalScrollBar()
-            scrollbar.setValue(scrollbar.value() - delta.y())
-            self.last_mouse_pos = event.pos()
+            delta = event.globalPosition().toPoint() - self.last_mouse_pos
+            self.move(self.pos() + delta)
+            self.last_mouse_pos = event.globalPosition().toPoint()
 
     def mouseReleaseEvent(self, event: QMouseEvent):
         if event.button() == Qt.MouseButton.LeftButton:
