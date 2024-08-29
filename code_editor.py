@@ -95,10 +95,21 @@ class CodeEditor(QPlainTextEdit):
 
         if not self.isReadOnly():
             selection = QTextEdit.ExtraSelection()
-            selection.format.setBackground(self.line_highlight_color.lighter(160))
+
+            # Tentukan warna sorotan berdasarkan tema
+            background_color = self.line_highlight_color.lighter(160)
+
+            # Jika background adalah warna kuning dan tema adalah gelap, ubah teks menjadi hitam
+            if self.line_highlight_color == QColor(Qt.GlobalColor.darkYellow):
+                selection.format.setForeground(Qt.GlobalColor.black)
+            else:
+                selection.format.setForeground(self.palette().color(QPalette.ColorRole.Text))
+
+            selection.format.setBackground(background_color)
             selection.format.setProperty(QTextFormat.FullWidthSelection, True)
             selection.cursor = self.textCursor()
             selection.cursor.clearSelection()
             extra_selections.append(selection)
 
         self.setExtraSelections(extra_selections)
+
