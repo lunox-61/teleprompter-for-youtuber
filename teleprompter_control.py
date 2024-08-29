@@ -1,7 +1,7 @@
 import sys
-from PyQt6.QtWidgets import (QApplication, QVBoxLayout, QWidget, QMainWindow, QToolBar, QMessageBox, QPlainTextEdit, QMenuBar, QFileDialog)
+from PyQt6.QtWidgets import (QApplication, QVBoxLayout, QWidget, QMainWindow, QToolBar, QMessageBox, QPlainTextEdit, QFileDialog)
 from PyQt6.QtCore import Qt, pyqtSignal, QFileInfo
-from PyQt6.QtGui import QFont, QKeySequence, QAction, QIcon
+from PyQt6.QtGui import QFont, QKeySequence, QAction
 import qtawesome as qta
 from tkinter import Tk
 from tkinter.filedialog import askopenfilename
@@ -19,9 +19,6 @@ class TeleprompterControl(QMainWindow):
 
     def __init__(self):
         super().__init__()
-
-        # Set ikon aplikasi
-        self.setWindowIcon(QIcon("icon.ico"))
 
         self.current_settings = {
             'font': QFont("Arial", 48),
@@ -203,6 +200,10 @@ class TeleprompterControl(QMainWindow):
                                                    "Text Files (*.txt);;All Files (*)", 
                                                    options=options)
         if file_path:
+            # Periksa apakah file_path sudah memiliki ekstensi .txt
+            if not file_path.endswith(".txt"):
+                file_path += ".txt"  # Tambahkan .txt jika belum ada
+
             with open(file_path, 'w', encoding='utf-8') as file:
                 file.write(self.text_edit.toPlainText())
                 self.current_file = file_path  # Set current file to saved file
@@ -286,14 +287,22 @@ class TeleprompterControl(QMainWindow):
     def show_about_dialog(self):
         about_text = """
         <h3>Teleprompter Application</h3>
-        <p>Version 1.0</p>
-        <p>Developed by: Ilham Ripandi @lunox61official</p>
+        <p>Version 1.1</p>
+        <p>Developed by: Ilham Ripandi @furrynaofficial</p>
         <p>This is a simple teleprompter application built with PyQt and Python.</p>
         <p>If you like this project and want to support further development, consider making a donation:</p>
         <p><a href='https://saweria.co/Furryna'>Saweria</a> | <a href='https://paypal.me/IlhamRipandi'>PayPal</a></p>
         """
-        QMessageBox.about(self, "About Teleprompter", about_text)
 
+        msg_box = QMessageBox(self)
+        msg_box.setWindowTitle("About Teleprompter")
+        msg_box.setTextFormat(Qt.TextFormat.RichText)
+        msg_box.setText(about_text)
+        msg_box.setStandardButtons(QMessageBox.StandardButton.Ok)
+
+        msg_box.textBrowser().setOpenExternalLinks(True)
+
+        msg_box.exec()
 
 def main():
     app = QApplication(sys.argv)
@@ -303,7 +312,6 @@ def main():
     control_window.show()
 
     sys.exit(app.exec())
-
 
 if __name__ == '__main__':
     main()

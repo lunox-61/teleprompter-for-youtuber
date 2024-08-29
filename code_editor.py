@@ -1,6 +1,6 @@
 from PyQt6.QtWidgets import QWidget, QPlainTextEdit, QTextEdit
 from PyQt6.QtCore import QRect, QSize, Qt
-from PyQt6.QtGui import QPainter, QColor, QTextCursor, QTextFormat
+from PyQt6.QtGui import QColor, QPainter, QTextCursor, QTextFormat, QPalette
 
 class LineNumberArea(QWidget):
     def __init__(self, editor):
@@ -21,7 +21,27 @@ class CodeEditor(QPlainTextEdit):
         self.updateRequest.connect(self.update_line_number_area)
         self.cursorPositionChanged.connect(self.highlight_current_line)
         self.update_line_number_area_width(0)
+
+        # Initialize line_highlight_color
+        self.line_highlight_color = QColor(Qt.GlobalColor.yellow)
+
+        # Set colors based on system theme
+        self.set_editor_colors()
         self.highlight_current_line()
+
+    def set_editor_colors(self):
+        palette = self.palette()
+        background_color = palette.color(QPalette.ColorRole.Base)
+
+        # Assuming dark theme if background is dark
+        if background_color.lightness() < 128:  # lightness() returns a value from 0 (black) to 255 (white)
+            # Dark theme
+            self.setStyleSheet("background-color: black; color: white;")
+            self.line_highlight_color = QColor(Qt.GlobalColor.darkYellow)
+        else:
+            # Light theme
+            self.setStyleSheet("background-color: white; color: black;")
+            self.line_highlight_color = QColor(Qt.GlobalColor.yellow)
 
     def line_number_area_width(self):
         digits = len(str(self.blockCount())) + 1
@@ -54,12 +74,16 @@ class CodeEditor(QPlainTextEdit):
         top = int(self.blockBoundingGeometry(block).translated(self.contentOffset()).top())
         bottom = top + int(self.blockBoundingRect(block).height())
 
+        # Gunakan font yang sama dengan editor teks utama
+        font = self.font()
+        painter.setFont(font)
+
         while block.isValid() and top <= event.rect().bottom():
             if block.isVisible() and bottom >= event.rect().top():
                 number = str(block_number + 1)
                 painter.setPen(Qt.GlobalColor.black)
                 painter.drawText(0, top, self.line_number_area.width(), self.fontMetrics().height(),
-                                 Qt.AlignmentFlag.AlignRight, number)
+                                Qt.AlignmentFlag.AlignRight, number)
 
             block = block.next()
             top = bottom
@@ -71,9 +95,7 @@ class CodeEditor(QPlainTextEdit):
 
         if not self.isReadOnly():
             selection = QTextEdit.ExtraSelection()
-
-            line_color = QColor(Qt.GlobalColor.yellow).lighter(160)
-            selection.format.setBackground(line_color)
+            selection.format.setBackground(self.line_highlight_color.lighter(160))
             selection.format.setProperty(QTextFormat.FullWidthSelection, True)
             selection.cursor = self.textCursor()
             selection.cursor.clearSelection()
