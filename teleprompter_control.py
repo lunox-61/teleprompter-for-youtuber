@@ -21,7 +21,7 @@ class TeleprompterControl(QMainWindow):
         super().__init__()
 
         # Set ikon aplikasi
-        self.setWindowIcon(QIcon("kode_terpisah/icon.ico"))
+        self.setWindowIcon(QIcon("icon.ico"))
 
         self.current_settings = {
             'font': QFont("Arial", 48),
