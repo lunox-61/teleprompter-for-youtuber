@@ -13,7 +13,7 @@ This is a simple Teleprompter application built with Python and PyQt. It allows 
 ## Installation
 
 ### Requirements
-- Python 3.x
+- Python 3.12
 - PyQt6
 - qtawesome
 
