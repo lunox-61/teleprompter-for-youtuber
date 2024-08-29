@@ -1,7 +1,9 @@
 # Teleprompter Application
 
 ## Overview
-This is a simple Teleprompter application built with Python and PyQt. It allows you to display text in a scrolling format, useful for public speaking, video recording, and more.
+Welcome to the Teleprompter Application! 🎥
+
+This tool is designed with YouTubers, content creators, and public speakers in mind. It makes delivering your lines smoother and easier, whether you're recording videos, streaming live, or giving a presentation. Keep your focus on the camera and connect better with your audience!
 
 ## Features
 - **Customizable text:** Adjust font size, style, and scrolling speed.
@@ -32,7 +34,7 @@ This is a simple Teleprompter application built with Python and PyQt. It allows 
     ```
 
 ## Download
-You can download the compiled `.exe` file [here]().
+You can download the compiled `.exe` file [here](https://github.com/lunox-61/teleprompter-for-youtuber/releases/tag/v1.0).
 
 ## Usage
 1. Run the application.
