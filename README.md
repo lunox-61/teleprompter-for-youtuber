@@ -13,7 +13,7 @@ This is a simple Teleprompter application built with Python and PyQt. It allows 
 ## Installation
 
 ### Requirements
-- Python 3.12
+- Python 3.12.5
 - PyQt6
 - qtawesome
 
@@ -32,7 +32,7 @@ This is a simple Teleprompter application built with Python and PyQt. It allows 
     ```
 
 ## Download
-You can download the compiled `.exe` file [here](https://github.com/lunox-61/teleprompter).
+You can download the compiled `.exe` file [here]([[https://github.com/lunox-61/teleprompter](https://github.com/lunox-61/teleprompter.git)](https://github.com/lunox-61/teleprompter/releases)).
 
 ## Usage
 1. Run the application.
